@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 
+  birthday: 2020-03-21
+  timeToDoc: 1
+  phone: MyString
+  email: MyString
+
+two:
+  id: 
+  birthday: 2020-03-21
+  timeToDoc: 1
+  phone: MyString
+  email: MyString
