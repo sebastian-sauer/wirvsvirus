@@ -1,13 +1,11 @@
 <h1>LineAdmin#index</h1>
-
-<!--<h2>Appointments</h2>-->
-<!--<ul>-->
-<%# @appointments.each do |appointment| %>
-<!--    <li><%#= appointment.datetime.to_formatted_s(:long)  %></li>-->
-<%# end %>
-<!--</ul>-->
-
 <h2>Patients</h2>
+
+
+<%= link_to "Previous day", {date: @previousday}%>
+<h3><%= @date %></h3>
+<%= link_to "Next day", {date: @nextday} %>
+
 <ul>
   <% @patients.each do |patient| %>
     <li><%= patient.name %></li>
@@ -22,6 +20,6 @@
 <h2>Times</h2>
 <ul>
   <% @times.each do |time| %>
-    <li><%= time.patient.name %></li>
+    <li><%= time.patient.name + " - " + time.datetime.to_formatted_s(:long)%> </li>
   <% end %>
 </ul>

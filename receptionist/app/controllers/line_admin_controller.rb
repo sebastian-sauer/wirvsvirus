@@ -1,9 +1,21 @@
 class LineAdminController < ApplicationController
   def index
+    date = params["date"]
+    puts date
+
+    if date.present?
+      dt = Date.strptime(date, "%Y%m%d")
+    else
+      dt = DateTime.current()
+    end
+
+    @date = dt.strftime("%Y-%m-%d")
+    @nextday = dt.next_day.strftime("%Y%m%d")
+    @previousday = dt.prev_day.strftime("%Y%m%d")
+    
     @appointments = Appointment.all
     @patients = Patient.all
 
-    dt = DateTime.strptime("02.03.2020 8:00", "%d.%m.%Y %H:%M")
     @times = Appointment.where(datetime: dt.all_day)
   end
 end
