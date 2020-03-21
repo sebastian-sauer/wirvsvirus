@@ -27,12 +27,10 @@ class LineAdminController < ApplicationController
   end
 
   # Apply a new sort to our entries in our frontend
-  def sort 
-    # see https://gorails.com/episodes/sortable-drag-and-drop
-    # something changed in our sort list in our frontend
-    # -> rerender our list in our frontend?
-    # -> async ajax and update frontend via javascript
-
+  def sort
+    puts params.inspect
+    puts params[:list].inspect
+    puts "FLAVOR FLAVS"
 
 
   end

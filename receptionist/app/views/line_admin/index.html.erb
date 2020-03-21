@@ -19,7 +19,7 @@
 
 </div>
 
-<table >
+<table>
   <thead>
   <tr>
     <th>Status</th>
@@ -30,9 +30,9 @@
     <th>Aktionen</th>
   </tr>
   </thead>
-  <tbody>
+  <tbody class="sortable">
   <% @appointmentsScheduled.each do |appointment| %>
-    <tr class="sortable">
+    <tr id="<%= appointment.id %>">
       <td><%= appointment.status %> </td>
       <td><%= appointment.datetime.strftime("%H:%M") %> </td>
       <td><%= appointment.patient.name %> </td>
@@ -52,36 +52,32 @@
 <% if @freeAppointmentsAvailable %>
   <span>Gibt noch genug freie Slots heute</span>
 <% else %>
-<table>
-  <thead>
-  <tr>
-    <th>Status</th>
-    <th>Uhrzeit</th>
-    <th>Patient</th>
-    <th>Klassifikation</th>
-    <th>Notiz</th>
-    <th>Aktionen</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @appointmentsWaitingList.each do |appointment| %>
+  <table>
+    <thead>
     <tr>
-      <td><%= appointment.status %> </td>
-      <td><%= appointment.datetime.strftime("%H:%M") %> </td>
-      <td><%= appointment.patient.name %> </td>
-      <td><%= appointment.classification %> </td>
-      <td><%= appointment.remarks %> </td>
-      <td></td>
+      <th>Status</th>
+      <th>Uhrzeit</th>
+      <th>Patient</th>
+      <th>Klassifikation</th>
+      <th>Notiz</th>
+      <th>Aktionen</th>
     </tr>
+    </thead>
+    <tbody>
+    <% @appointmentsWaitingList.each do |appointment| %>
+      <tr>
+        <td><%= appointment.status %> </td>
+        <td><%= appointment.datetime.strftime("%H:%M") %> </td>
+        <td><%= appointment.patient.name %> </td>
+        <td><%= appointment.classification %> </td>
+        <td><%= appointment.remarks %> </td>
+        <td></td>
+      </tr>
 
-  <% end %>
+    <% end %>
 
-  </tbody>
-</table>
+    </tbody>
+  </table>
 <% end %>
 
-<script type="text/javascript">
-  $(".sortable").sortable().bind("sortupdate", (e, ui) => {
-    console.log(e,ui);
-  });
-</script>
+<%= javascript_pack_tag 'line_admin' %>
