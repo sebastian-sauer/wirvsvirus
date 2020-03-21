@@ -1,25 +1,47 @@
-<h1>LineAdmin#index</h1>
-<h2>Patients</h2>
+<div class="row">
+  <div class="column-6">
+    <h1>Termine</h1>
+  </div>
+  <div class="column-6">
+    <div class="row">
+      <div class="column-6">
+        <h3 class="float-right"><%= @date %></h3>
+      </div>
+      <div class="column-3">
+        <%= link_to "Previous day", {date: @previousday} %>
+      </div>
+      <div class="column-3">
+        <%= link_to "Next day", {date: @nextday} %>
+      </div>
+    </div>
+  </div>
 
 
-<%= link_to "Previous day", {date: @previousday}%>
-<h3><%= @date %></h3>
-<%= link_to "Next day", {date: @nextday} %>
+</div>
 
-<ul>
-  <% @patients.each do |patient| %>
-    <li><%= patient.name %></li>
-    <ul>
-      <% patient.appointments.each do |appointment| %>
-        <li><%= appointment.datetime.to_formatted_s(:long) %></li>
-      <% end %>
-    </ul>
+<table>
+  <thead>
+  <tr>
+    <th>Status</th>
+    <th>Uhrzeit</th>
+    <th>Patient</th>
+    <th>Klassifikation</th>
+    <th>Notiz</th>
+    <th>Aktionen</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @appointments.each do |appointment| %>
+    <tr>
+      <td><%= appointment.status %> </td>
+      <td><%= appointment.datetime.strftime("%H:%M") %> </td>
+      <td><%= appointment.patient.name %> </td>
+      <td><%= appointment.classification %> </td>
+      <td><%= appointment.remarks %> </td>
+      <td></td>
+    </tr>
+
   <% end %>
-</ul>
 
-<h2>Times</h2>
-<ul>
-  <% @times.each do |time| %>
-    <li><%= time.patient.name + " - " + time.datetime.to_formatted_s(:long)%> </li>
-  <% end %>
-</ul>
+  </tbody>
+</table>

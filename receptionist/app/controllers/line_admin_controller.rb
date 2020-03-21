@@ -13,9 +13,6 @@ class LineAdminController < ApplicationController
     @nextday = dt.next_day.strftime("%Y%m%d")
     @previousday = dt.prev_day.strftime("%Y%m%d")
     
-    @appointments = Appointment.all
-    @patients = Patient.all
-
-    @times = Appointment.where(datetime: dt.all_day)
+    @appointments = Appointment.where(datetime: dt.all_day).order(:datetime)
   end
 end
