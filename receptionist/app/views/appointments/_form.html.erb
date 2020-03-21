@@ -1,4 +1,4 @@
-<h1><%= patientid %></h1>
+<h1><%= @appointment.patient.name %></h1>
 <%= form_with(model: appointment, local: true) do |form| %>
   <% if appointment.errors.any? %>
     <div id="error_explanation">
