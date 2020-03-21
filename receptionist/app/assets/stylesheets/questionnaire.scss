@@ -1,0 +1,23 @@
+// Place all the styles related to the Questionnaire controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+div.questionaire-intro-container {
+  width: 100%;
+  padding-top: 90px;
+  padding-left: 20%;
+  padding-right: 20%;
+  div.questionaire-intro-message-container{
+    padding: 25px;
+    background: #ccc;
+    text-align: center;
+    margin-bottom: 45px;
+  }
+  div.questionaire-intro-btn-container {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+div.questionaire-question-footer{
+  
+}

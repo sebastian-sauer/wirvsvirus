@@ -1,0 +1,23 @@
+<div>
+  <div class="column-12">
+    <%= render :partial => 'shared/header' %>
+  </div>
+  <div class="column-10">
+    <div class='questionaire-intro-container'>
+      <h1>Digitale Terminanfrage</h1>
+      <div class="questionaire-intro-message-container column-12">
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        <br>
+        <br>
+        <strong>***Erklärung****</strong>
+      </div>
+      <div class="column-3"></div>
+      <div class="column-6 questionaire-intro-btn-container">
+        <%= button_to "Terminanfrage starten", questionnaire_questions_path() , :method => "get", class: "btn" %>
+      </div>
+    </div>
+  </div>
+  <div class="column-2">
+    <%= render :partial => 'shared/aside' %>
+  </div>
+</div>
