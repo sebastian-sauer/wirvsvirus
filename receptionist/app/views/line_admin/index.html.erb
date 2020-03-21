@@ -1,7 +1,83 @@
-<h1>LineAdmin#index</h1>
+<div class="row">
+  <div class="column-6">
+    <h1>Termine</h1>
+  </div>
+  <div class="column-6">
+    <div class="row">
+      <div class="column-6">
+        <h3 class="float-right"><%= @date %></h3>
+      </div>
+      <div class="column-3">
+        <%= link_to "Previous day", {date: @previousday} %>
+      </div>
+      <div class="column-3">
+        <%= link_to "Next day", {date: @nextday} %>
+      </div>
+    </div>
+  </div>
 
-<ul>
-  <% @appointments.each do |appointment| %>
-    <li></li>
+
+</div>
+
+<table>
+  <thead>
+  <tr>
+    <th>Status</th>
+    <th>Uhrzeit</th>
+    <th>Patient</th>
+    <th>Klassifikation</th>
+    <th>Notiz</th>
+    <th>Aktionen</th>
+  </tr>
+  </thead>
+  <tbody class="sortable">
+  <% @appointmentsScheduled.each do |appointment| %>
+    <tr id="<%= appointment.id %>">
+      <td><%= appointment.status %> </td>
+      <td><%= appointment.datetime.strftime("%H:%M") %> </td>
+      <td><%= appointment.patient.name %> </td>
+      <td><%= appointment.classification %> </td>
+      <td><%= appointment.remarks %> </td>
+      <td></td>
+    </tr>
+
   <% end %>
-</ul>
+
+  </tbody>
+</table>
+
+<h1>Angefragte Termine (Warteliste)</h1>
+
+
+<% if @freeAppointmentsAvailable %>
+  <span>Gibt noch genug freie Slots heute</span>
+<% else %>
+  <table>
+    <thead>
+    <tr>
+      <th>Status</th>
+      <th>Uhrzeit</th>
+      <th>Patient</th>
+      <th>Klassifikation</th>
+      <th>Notiz</th>
+      <th>Aktionen</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @appointmentsWaitingList.each do |appointment| %>
+      <tr>
+        <td><%= appointment.status %> </td>
+        <td><%= appointment.datetime.strftime("%H:%M") %> </td>
+        <td><%= appointment.patient.name %> </td>
+        <td><%= appointment.classification %> </td>
+        <td><%= appointment.remarks %> </td>
+        <td></td>
+      </tr>
+
+    <% end %>
+
+    </tbody>
+  </table>
+<% end %>
+
+<%= javascript_pack_tag 'line_admin' %>

@@ -1,119 +1,142 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
- @import url("https://fonts.googleapis.com/css?family=Quicksand:400,600&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400,600&display=swap");
+
 h1 {
-  color: #58C8D3;
-  margin-bottom: 15px; }
+    color: #58C8D3;
+    margin-bottom: 15px;
+}
 
 h2 {
-  color: #5A5A5A;
-  margin-bottom: 15px; }
+    color: #5A5A5A;
+    margin-bottom: 15px;
+}
 
 h3 {
-  margin-bottom: 15px; }
+    margin-bottom: 15px;
+}
 
 h4 {
-  font-weight: 100;
-  color: #5A5A5A;
-  margin-bottom: 15px; }
+    font-weight: 100;
+    color: #5A5A5A;
+    margin-bottom: 15px;
+}
 
 .demo-grid {
-  background: #F4F4F4;
-  width: 100%;
-  float: left;
-  height: 50px;
-  text-align: center;
-  padding-top: 15px; }
+    background: #F4F4F4;
+    width: 100%;
+    float: left;
+    height: 50px;
+    text-align: center;
+    padding-top: 15px;
+}
 
 .border-radius {
-  border-radius: 12px; }
+    border-radius: 12px;
+}
 
 .float-left {
-  float: left; }
+    float: left;
+}
 
 .float-right {
-  float: right; }
+    float: right;
+}
 
 .color-light {
-  color: #F4F4F4; }
+    color: #F4F4F4;
+}
 
 .color-lighter {
-  color: #FCFCFC; }
+    color: #FCFCFC;
+}
 
 .color-dark {
-  color: #728E8B; }
+    color: #728E8B;
+}
 
 .color-darker {
-  color: #5A5A5A; }
+    color: #5A5A5A;
+}
 
 .color-primary {
-  color: #58C8D3; }
+    color: #58C8D3;
+}
 
 .color-danger {
-  color: #CE1919; }
+    color: #CE1919;
+}
 
 .background-light {
-  background: #F4F4F4; }
+    background: #F4F4F4;
+}
 
 .background-lighter {
-  background: #FCFCFC; }
+    background: #FCFCFC;
+}
 
 .background-dark {
-  background: #728E8B; }
+    background: #728E8B;
+}
 
 .background-darker {
-  background: #5A5A5A; }
+    background: #5A5A5A;
+}
 
 .background-primary {
-  background: #58C8D3; }
+    background: #58C8D3;
+}
 
 .background-danger {
-  background: #CE1919; }
+    background: #CE1919;
+}
 
 .wrapper,
 .row {
-  *zoom: 1; }
-  .wrapper:before,
-  .row:before, .wrapper:after,
-  .row:after {
+    *zoom: 1;
+}
+
+.wrapper:before,
+.row:before, .wrapper:after,
+.row:after {
     content: " ";
-    display: table; }
-  .wrapper:after,
-  .row:after {
-    clear: both; }
+    display: table;
+}
+
+.wrapper:after,
+.row:after {
+    clear: both;
+}
 
 table {
-  width: 100%;
-  border-collapse: collapse; }
-  table thead {
-    border-spacing: 0; }
-  table thead tr th {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table thead {
+    border-spacing: 0;
+}
+
+table thead tr th {
     text-align: left;
     color: #728E8B;
-    padding-bottom: 5px; }
-  table thead tr {
-    border-bottom: 1px solid #5A5A5A; }
-  table tbody tr {
-    height: 35px; }
-  table tbody tr:nth-child(odd) {
-    background: #F4F4F4; }
+    padding-bottom: 5px;
+}
+
+table thead tr {
+    border-bottom: 1px solid #5A5A5A;
+}
+
+table tbody tr {
+    height: 35px;
+}
+
+table tbody tr:nth-child(odd) {
+    background: #F4F4F4;
+}
 
 *,
 *:after,
 *:before {
+<<<<<<< HEAD
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
@@ -193,10 +216,134 @@ button.btn {
   .btn-group button.btn:last-child {
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px; }
+=======
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+img {
+    width: auto;
+    max-width: 100%;
+    height: auto !important;
+}
+
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
+[class*="column-"] {
+    float: left;
+    padding: 1em;
+    width: 100%;
+    min-height: 1px;
+}
+
+@media only screen and (min-width: 30em) {
+    .wrapper {
+        width: 95%;
+        max-width: 100%;
+    }
+
+    .column-1 {
+        width: 8.33333%;
+    }
+
+    .column-2 {
+        width: 16.66667%;
+    }
+
+    .column-3 {
+        width: 25%;
+    }
+
+    .column-4 {
+        width: 33.33333%;
+    }
+
+    .column-5 {
+        width: 41.66667%;
+    }
+
+    .column-6 {
+        width: 50%;
+    }
+
+    .column-7 {
+        width: 58.33333%;
+    }
+
+    .column-8 {
+        width: 66.66667%;
+    }
+
+    .column-9 {
+        width: 75%;
+    }
+
+    .column-10 {
+        width: 83.33333%;
+    }
+
+    .column-11 {
+        width: 91.66667%;
+    }
+
+    .column-12 {
+        width: 100%;
+    }
+}
+
+button.btn {
+    background: #58C8D3;
+    padding: 11px 25px;
+    border: none;
+    font-size: 14px;
+    color: white;
+    border-radius: 12px;
+    font-weight: 100;
+    outline: none;
+    cursor: pointer;
+    transition: all ease-in-out 0.35s;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05), 0 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+button.btn:hover {
+    background: #80d5de;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button.btn.btn-icon {
+    padding: 4px 6px;
+}
+
+button.btn.btn-icon i.material-icons {
+    font-size: 28px;
+}
+
+.btn-group button.btn {
+    border-radius: 0;
+    float: left;
+}
+
+.btn-group button.btn:first-child {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.btn-group button.btn:last-child {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+>>>>>>> master
 
 input,
 textarea,
 select {
+<<<<<<< HEAD
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -223,3 +370,36 @@ label {
 
 body {
   font-family: 'Quicksand', sans-serif; }
+=======
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 3px solid #E6E6E6;
+    padding: 6px;
+    font-size: 16px;
+    border-radius: 8px;
+    width: 100%;
+    font-weight: 100;
+    min-height: 42px;
+    outline: none;
+    transition: all ease-in-out 0.35s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #58C8D3;
+}
+
+label {
+    color: #5a5a5a;
+    padding: 7px;
+    font-weight: 100;
+    font-size: 15px;
+    float: left;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+>>>>>>> master
