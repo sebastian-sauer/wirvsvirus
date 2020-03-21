@@ -19,6 +19,39 @@
 
 </div>
 
+<table >
+  <thead>
+  <tr>
+    <th>Status</th>
+    <th>Uhrzeit</th>
+    <th>Patient</th>
+    <th>Klassifikation</th>
+    <th>Notiz</th>
+    <th>Aktionen</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @appointmentsScheduled.each do |appointment| %>
+    <tr class="sortable">
+      <td><%= appointment.status %> </td>
+      <td><%= appointment.datetime.strftime("%H:%M") %> </td>
+      <td><%= appointment.patient.name %> </td>
+      <td><%= appointment.classification %> </td>
+      <td><%= appointment.remarks %> </td>
+      <td></td>
+    </tr>
+
+  <% end %>
+
+  </tbody>
+</table>
+
+<h1>Angefragte Termine (Warteliste)</h1>
+
+
+<% if @freeAppointmentsAvailable %>
+  <span>Gibt noch genug freie Slots heute</span>
+<% else %>
 <table>
   <thead>
   <tr>
@@ -31,7 +64,7 @@
   </tr>
   </thead>
   <tbody>
-  <% @appointments.each do |appointment| %>
+  <% @appointmentsWaitingList.each do |appointment| %>
     <tr>
       <td><%= appointment.status %> </td>
       <td><%= appointment.datetime.strftime("%H:%M") %> </td>
@@ -45,3 +78,10 @@
 
   </tbody>
 </table>
+<% end %>
+
+<script type="text/javascript">
+  $(".sortable").sortable().bind("sortupdate", (e, ui) => {
+    console.log(e,ui);
+  });
+</script>

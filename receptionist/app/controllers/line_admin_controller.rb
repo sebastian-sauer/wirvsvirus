@@ -12,7 +12,28 @@ class LineAdminController < ApplicationController
     @date = dt.strftime("%Y-%m-%d")
     @nextday = dt.next_day.strftime("%Y%m%d")
     @previousday = dt.prev_day.strftime("%Y%m%d")
+    # to be done: check if free appointments are available for today.
+    @freeAppointmentsAvailable = true
+
+    @appointmentsScheduled = Appointment.where(datetime: dt.all_day).where.not(status: "to-be-triaged").order(:datetime)
     
-    @appointments = Appointment.where(datetime: dt.all_day).order(:datetime)
+    # only if there are no free appointments search for appointments to be triaged.
+    # otherwise just use an empty list
+    if @freeAppointmentsAvailable
+      @appointmentsWaitingList = []
+    else 
+      @appointmentsWaitingList = Appointment.where(datetime: dt.all_day).where(status: "to-be-triaged").order(:datetime)
+    end
+  end
+
+  # Apply a new sort to our entries in our frontend
+  def sort 
+    # see https://gorails.com/episodes/sortable-drag-and-drop
+    # something changed in our sort list in our frontend
+    # -> rerender our list in our frontend?
+    # -> async ajax and update frontend via javascript
+
+
+
   end
 end
