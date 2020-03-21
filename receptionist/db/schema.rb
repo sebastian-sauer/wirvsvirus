@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2020_03_21_080841) do
 
   create_table "patients", force: :cascade do |t|
     t.date "birthday"
+    t.string "name"
     t.integer "timeToDoc"
     t.string "phone"
     t.string "email"
