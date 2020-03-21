@@ -6,6 +6,7 @@ class CreatePatients < ActiveRecord::Migration[6.0]
       t.integer :timeToDoc
       t.string :phone
       t.string :email
+
       t.timestamps
     end
   end

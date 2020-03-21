@@ -6,7 +6,7 @@ class CreateAppointments < ActiveRecord::Migration[6.0]
       t.string :classification
       t.text :remarks
       t.integer :sortOrder
-      t.references :patient
+      t.references :patient, null: false, foreign_key: true
 
       t.timestamps
     end

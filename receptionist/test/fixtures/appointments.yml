@@ -1,13 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  datetime: 2020-03-21 09:08:41
+  datetime: 2020-03-21 18:53:19
   status: MyString
   classification: MyString
   remarks: MyText
+  sortOrder: 1
+  patient: one
 
 two:
-  datetime: 2020-03-21 09:08:41
+  datetime: 2020-03-21 18:53:19
   status: MyString
   classification: MyString
   remarks: MyText
+  sortOrder: 1
+  patient: two

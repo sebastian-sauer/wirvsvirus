@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :appointment
+  resources :appointments
+  resources :patients
   get 'line_admin/index'
   get 'line_admin/createappointment'
 
