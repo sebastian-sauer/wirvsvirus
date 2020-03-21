@@ -18,3 +18,10 @@
     </ul>
   <% end %>
 </ul>
+
+<h2>Times</h2>
+<ul>
+  <% @times.each do |time| %>
+    <li><%= time.patient.name %></li>
+  <% end %>
+</ul>
