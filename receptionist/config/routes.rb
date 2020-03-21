@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  resources :appointment
   get 'line_admin/index'
+  get 'line_admin/createappointment'
 
   post 'line_admin/sort'
 

@@ -4,7 +4,7 @@
   </div>
   <div class="column-6">
     <div class="row">
-      <div class="column-6">
+      <div class="column-3">
         <h3 class="float-right"><%= @date %></h3>
       </div>
       <div class="column-3">
@@ -13,20 +13,22 @@
       <div class="column-3">
         <%= link_to "Next day", {date: @nextday} %>
       </div>
+      <div class="column-3">
+        <%= link_to "New record", "appointment/create" %>
+      </div>
     </div>
   </div>
-
-
 </div>
 
 <table>
   <thead>
   <tr>
     <th>Status</th>
-    <th>Uhrzeit</th>
+    <th>Wunschtermin</th>
     <th>Patient</th>
     <th>Klassifikation</th>
     <th>Notiz</th>
+    <th>Aktuelle Wartedauer</th>
     <th>Aktionen</th>
   </tr>
   </thead>
@@ -38,6 +40,7 @@
       <td><%= appointment.patient.name %> </td>
       <td><%= appointment.classification %> </td>
       <td><%= appointment.remarks %> </td>
+      <td><%= appointment.estimatedWaitingTime %> </td>
       <td></td>
     </tr>
 
@@ -56,7 +59,7 @@
     <thead>
     <tr>
       <th>Status</th>
-      <th>Uhrzeit</th>
+      <th>Wunschtermin</th>
       <th>Patient</th>
       <th>Klassifikation</th>
       <th>Notiz</th>

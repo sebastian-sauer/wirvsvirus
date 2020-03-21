@@ -5,6 +5,7 @@ class CreateAppointments < ActiveRecord::Migration[6.0]
       t.string :status
       t.string :classification
       t.text :remarks
+      t.integer :sortOrder
       t.references :patient
 
       t.timestamps

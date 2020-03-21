@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2020_03_21_080841) do
     t.string "status"
     t.string "classification"
     t.text "remarks"
+    t.integer "sortOrder"
     t.integer "patient_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

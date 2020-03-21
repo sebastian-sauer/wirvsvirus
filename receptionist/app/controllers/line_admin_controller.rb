@@ -1,4 +1,5 @@
 class LineAdminController < ApplicationController
+
   def index
     date = params["date"]
     puts date
@@ -15,23 +16,37 @@ class LineAdminController < ApplicationController
     # to be done: check if free appointments are available for today.
     @freeAppointmentsAvailable = true
 
-    @appointmentsScheduled = Appointment.where(datetime: dt.all_day).where.not(status: "to-be-triaged").order(:datetime)
+    @appointmentsScheduled = Appointment.where(datetime: dt.all_day).where.not(status: "done").where.not(status: "to-be-triaged").order(:sortOrder)
     
     # only if there are no free appointments search for appointments to be triaged.
     # otherwise just use an empty list
     if @freeAppointmentsAvailable
       @appointmentsWaitingList = []
     else 
-      @appointmentsWaitingList = Appointment.where(datetime: dt.all_day).where(status: "to-be-triaged").order(:datetime)
+      @appointmentsWaitingList = Appointment.where(datetime: dt.all_day).where.not(status: "done").where(status: "to-be-triaged").order(:sortOrder)
     end
   end
 
   # Apply a new sort to our entries in our frontend
   def sort
-    puts params.inspect
-    puts params[:list].inspect
-    puts "FLAVOR FLAVS"
+    newOrderedList = params[:list].split(",").map(&:to_i)
+    puts "clients new order is: " + newOrderedList.to_s
+    # get all appointments for this day
+    appointments = Appointment.where(id: newOrderedList)
+    
+    # and recalculate the order
+    for appointment in appointments do
+      appointment.sortOrder = newOrderedList.index(appointment.id)
+      appointment.save
+    end
 
+    
+    render json: newOrderedList.to_s
+  end
 
+  # Create a new appointment
+  def createappointment
+    puts "Create appointment called"
+    @appointment = Appointment.new
   end
 end
