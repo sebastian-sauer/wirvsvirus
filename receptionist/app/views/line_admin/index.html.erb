@@ -1,7 +1,20 @@
 <h1>LineAdmin#index</h1>
 
+<!--<h2>Appointments</h2>-->
+<!--<ul>-->
+<%# @appointments.each do |appointment| %>
+<!--    <li><%#= appointment.datetime.to_formatted_s(:long)  %></li>-->
+<%# end %>
+<!--</ul>-->
+
+<h2>Patients</h2>
 <ul>
-  <% @appointments.each do |appointment| %>
-    <li></li>
+  <% @patients.each do |patient| %>
+    <li><%= patient.name %></li>
+    <ul>
+      <% patient.appointments.each do |appointment| %>
+        <li><%= appointment.datetime.to_formatted_s(:long) %></li>
+      <% end %>
+    </ul>
   <% end %>
 </ul>

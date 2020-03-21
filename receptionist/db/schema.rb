@@ -17,8 +17,10 @@ ActiveRecord::Schema.define(version: 2020_03_21_080841) do
     t.string "status"
     t.string "classification"
     t.text "remarks"
+    t.integer "patient_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["patient_id"], name: "index_appointments_on_patient_id"
   end
 
   create_table "patients", force: :cascade do |t|
