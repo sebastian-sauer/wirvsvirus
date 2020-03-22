@@ -10,7 +10,12 @@ class LineAdminController < ApplicationController
       dt = DateTime.current()
     end
 
-    @date = I18n.l(dt, format: :ger_with_weekday, locale: "de")
+    if dt.today?
+      @date = 'Heute, ' + dt.to_s(:ger_format)
+    else
+      @date = I18n.l(dt, format: :ger_with_weekday, locale: "de")
+    end
+
     @nextday = dt.next_day.to_s(:year_month_day)
     @previousday = dt.prev_day.to_s(:year_month_day)
     # to be done: check if free appointments are available for today.
