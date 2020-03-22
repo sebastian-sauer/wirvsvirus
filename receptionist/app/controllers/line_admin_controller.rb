@@ -5,14 +5,14 @@ class LineAdminController < ApplicationController
     puts date
 
     if date.present?
-      dt = Date.strptime(date, "%Y%m%d")
+      dt = DateTime.strptime(date, "%Y%m%d")
     else
       dt = DateTime.current()
     end
 
-    @date = dt.strftime("%Y-%m-%d")
-    @nextday = dt.next_day.strftime("%Y%m%d")
-    @previousday = dt.prev_day.strftime("%Y%m%d")
+    @date = I18n.l(dt, format: :ger_with_weekday, locale: "de")
+    @nextday = dt.next_day.to_s(:year_month_day)
+    @previousday = dt.prev_day.to_s(:year_month_day)
     # to be done: check if free appointments are available for today.
     @freeAppointmentsAvailable = true
 
@@ -33,7 +33,7 @@ class LineAdminController < ApplicationController
     puts "clients new order is: " + newOrderedList.to_s
     # get all appointments for this day
     appointments = Appointment.where(id: newOrderedList)
-    
+
     # and recalculate the order
     for appointment in appointments do
       appointment.sortOrder = newOrderedList.index(appointment.id)
