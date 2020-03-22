@@ -4,17 +4,17 @@
   </div>
   <div class="column-6">
     <div class="row">
-      <div class="column-3">
-        <h3 class="float-right"><%= @date %></h3>
+      <div class="column-8">
+        <p class="float-right" style="font-size:24pt;"><%= @date %></p>
       </div>
-      <div class="column-3">
-        <%= link_to "Previous day", {date: @previousday} %>
+      <div class="column-2">
+        <div class="btn-group float-right">
+          <%= link_to '<button class="btn btn-icon"><i class="material-icons">chevron_left</i></button>'.html_safe, {date: @previousday} %>
+          <%= link_to '<button class="btn btn-icon"><i class="material-icons">chevron_right</i></button>'.html_safe, {date: @nextday} %>
+        </div>
       </div>
-      <div class="column-3">
-        <%= link_to "Next day", {date: @nextday} %>
-      </div>
-      <div class="column-3">
-        <%= link_to "New record", "/patients/new" %>
+      <div class="column-1">
+        <%= link_to '<button class="btn btn-icon"><i class="material-icons">add</i></button>'.html_safe, "/patients/new" %>
       </div>
     </div>
   </div>
