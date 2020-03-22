@@ -39,9 +39,7 @@ class LineAdminController < ApplicationController
       appointment.sortOrder = newOrderedList.index(appointment.id)
       appointment.save
     end
-
-    
-    render json: newOrderedList.to_s
+    render json: appointments.sort_by(&:sortOrder)
   end
 
   # Create a new appointment

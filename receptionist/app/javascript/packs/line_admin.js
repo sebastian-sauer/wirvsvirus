@@ -21,5 +21,10 @@ $(".sortable").sortable().bind("sortupdate", function (e, ui) {
         type: "post",
         url: "/line_admin/sort",
         data: JSON_to_URLEncoded({ list: line }),
+        success: (pData) => {
+            for(let data of pData){
+                $($('tr#' + data.id).children('td').get(5)).text(data.estimatedWaitingTime);
+            }            
+        }
     });
 });
