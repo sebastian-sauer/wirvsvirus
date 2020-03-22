@@ -6,7 +6,7 @@ time.change({ hour: 7, min: 30, sec: 0 })
 order = 0
 
 p = Patient.create(:name => "DER WAR SCHON DRAN ", :birthday => DateTime.strptime("09/21/2009 8:00", "%m/%d/%Y %H:%M"), :timeToDoc => 5, :phone => "015111111", :email => "horsti"+ "@gmail.com")
-p.appointments.create(:sortOrder => order, :datetime => time, :status => "done", :classification => "corona-verdacht", :remarks => "Test schon dran")
+p.appointments.create(:sortOrder => order, :datetime => time, :appointmentstatus => Appointment.appointmentstatuses[:done], :classification => Appointment.classifications[:covid19], :remarks => "Test schon dran")
 
 for i in 1..20 do
   time = time + 30.minutes
@@ -14,5 +14,5 @@ for i in 1..20 do
 
   p = Patient.create(:name => "Horst " + i.to_s, :birthday => DateTime.strptime("09/" + i.to_s + "/2009 8:00", "%m/%d/%Y %H:%M"), :timeToDoc => i * 2, :phone => "015111111" + i.to_s, :email => "horst" + i.to_s + "@gmail.com")
 
-  p.appointments.create(:sortOrder => order, :datetime => time, :status => "new", :classification => "corona-verdacht", :remarks => "Test " + i.to_s)
+  p.appointments.create(:sortOrder => order, :datetime => time, :appointmentstatus => Appointment.appointmentstatuses[:newappointment], :classification => Appointment.classifications[:covid19suspect], :remarks => "Test " + i.to_s)
 end

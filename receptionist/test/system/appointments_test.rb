@@ -19,7 +19,7 @@ class AppointmentsTest < ApplicationSystemTestCase
     fill_in "Patient", with: @appointment.patient_id
     fill_in "Remarks", with: @appointment.remarks
     fill_in "Sortorder", with: @appointment.sortOrder
-    fill_in "Status", with: @appointment.status
+    fill_in "Status", with: @appointment.appointmentstatus
     click_on "Create Appointment"
 
     assert_text "Appointment was successfully created"
@@ -35,7 +35,7 @@ class AppointmentsTest < ApplicationSystemTestCase
     fill_in "Patient", with: @appointment.patient_id
     fill_in "Remarks", with: @appointment.remarks
     fill_in "Sortorder", with: @appointment.sortOrder
-    fill_in "Status", with: @appointment.status
+    fill_in "Status", with: @appointment.appointmentstatus
     click_on "Update Appointment"
 
     assert_text "Appointment was successfully updated"
