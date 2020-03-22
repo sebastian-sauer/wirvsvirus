@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 2020_03_21_175319) do
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "datetime"
-    t.string "status"
-    t.string "classification"
+    t.integer "appointmentstatus"
+    t.integer "classification"
     t.text "remarks"
     t.integer "sortOrder"
     t.integer "patient_id", null: false

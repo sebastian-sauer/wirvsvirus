@@ -21,14 +21,14 @@ class LineAdminController < ApplicationController
     # to be done: check if free appointments are available for today.
     @freeAppointmentsAvailable = true
 
-    @appointmentsScheduled = Appointment.where(datetime: dt.all_day).where.not(status: "done").where.not(status: "to-be-triaged").order(:sortOrder)
-
+    @appointmentsScheduled = Appointment.where(datetime: dt.all_day).where.not(appointmentstatus: :done).order(:sortOrder)
+    
     # only if there are no free appointments search for appointments to be triaged.
     # otherwise just use an empty list
     if @freeAppointmentsAvailable
       @appointmentsWaitingList = []
-    else
-      @appointmentsWaitingList = Appointment.where(datetime: dt.all_day).where.not(status: "done").where(status: "to-be-triaged").order(:sortOrder)
+    else 
+      @appointmentsWaitingList = Appointment.where(datetime: dt.all_day).where.not(appointmentstatus: :done).where(appointmentstatus: :newappointment).order(:sortOrder)
     end
   end
 
